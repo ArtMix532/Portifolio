@@ -3,7 +3,7 @@ import CardProject from "./CardProject";
 import PageTitle from "./PageTitle";
 
 function Projects() {
-  const [projects] = useState([
+  const [projects, setProjects] = useState([
     {
       Id: 1,
       Title: "To Do List",
@@ -18,10 +18,21 @@ function Projects() {
     },
   ]);
 
+  // Função para alternar o estado de `isVisible` de um projeto específico
+  function onDetails(projectId) {
+    const updatedProjects = projects.map((project) => {
+      if (project.Id === projectId) {
+        return { ...project, isVisible: !project.isVisible }; // Alterna o valor
+      }
+      return project;
+    });
+    setProjects(updatedProjects);
+  }
+
   return (
-    <div id="Projects" className="h-screen w-screen bg-slate-500">
+    <div id="Projects" className="h-screen w-screen bg-slate-300 px-32">
       <PageTitle title="Projects" />
-      <CardProject projects={projects} />
+      <CardProject projects={projects} onDetails={onDetails} />
     </div>
   );
 }
