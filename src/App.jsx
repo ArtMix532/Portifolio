@@ -7,7 +7,7 @@ import Api from "./components/Api";
 
 function App() {
   return (
-    <div className="w-screen h-screen  justify-center ">
+    <div className="w-screen h-screen">
       <NavBar />
 
       <div className="flex justify-center align-center">

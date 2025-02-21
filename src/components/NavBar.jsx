@@ -1,9 +1,9 @@
+import Logo from "../assets/Logo.png";
+
 function NavBar() {
   return (
     <div className="flex text-center w-screen items-center bg-slate-300 h-[7.5vh]">
-      <div className="p-1 w-1/4">
-        <h1>Davi Benjamim</h1>
-      </div>
+      <img src={Logo} alt="" className="w-1/4 h-62 pt-8 pl-36" />
       <ul className="space-x-16 p-1 w-3/4">
         <a href="#Home" className="text-blue-900 font-oswald font-medium">
           Home

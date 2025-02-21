@@ -1,24 +1,45 @@
-function Card({ Title, Url, Description, Tags }) {
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Tooltip,
+} from "@material-tailwind/react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { Links } from "../constants";
+
+export function ProfileCard({ Img, Name, Url }) {
   return (
-    <a href={Url} className="flex content-center justify-center shadow-xl">
-      <div className="w-full bg-slate-500 h-full rounded p-6">
-        <h1 className="text-slate-200 font-semibold text-xl text-center">
-          {Title}
-        </h1>
-        <p>{Description}</p>
-        {Tags.length > 0 && (
-          <div className="flex">
-            {Tags.map((tag, index) => (
-              <p className="bg-slate-300 rounded px-2 mx-1" key={index}>
-                {tag}
-              </p>
-            ))}
-          </div>
-        )}
-      </div>
-    </a>
+    <Card className="w-96 bg-gray-200">
+      <CardHeader floated={false} className="h-80">
+        <img src={Img} alt="profile-picture" />
+      </CardHeader>
+      <CardBody className="text-center">
+        <Typography variant="h4" color="blue-gray" className="mb-2">
+          {Name}
+        </Typography>
+        <Typography color="blue-gray" className="font-medium" textGradient>
+          Full Stack Developer
+        </Typography>
+      </CardBody>
+      <CardFooter className="flex justify-center gap-7 pt-2">
+        <Tooltip content="Github">
+          <a href={Url}>
+            <Github />
+          </a>
+        </Tooltip>
+        <Tooltip content="Linkedin">
+          <a href={Links.Linkedin}>
+            <Linkedin />
+          </a>
+        </Tooltip>
+        <Tooltip content="E-Mail">
+          <a href={Links.Email}>
+            <Mail />
+          </a>
+        </Tooltip>
+      </CardFooter>
+    </Card>
   );
 }
-
-
-export default Card;

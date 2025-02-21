@@ -9,12 +9,14 @@ function Projects() {
       Title: "To Do List",
       Content: "Esse projeto tananaamamamamaamama amamanan ashaha",
       isVisible: false,
+      Url: "ToDOList",
     },
     {
       Id: 2,
       Title: "Buscar Endereço",
       Content: "Esse projeto localiza o endereço da pessoa utilizando o CEP",
       isVisible: false,
+      Url: "Endereco",
     },
   ]);
 
@@ -32,7 +34,9 @@ function Projects() {
   return (
     <div id="Projects" className="h-screen w-screen bg-slate-300 px-32">
       <PageTitle title="Projects" />
-      <CardProject projects={projects} onDetails={onDetails} />
+      <div className="px-32 py-16 w-screen">
+        <CardProject projects={projects} onDetails={onDetails} />
+      </div>
     </div>
   );
 }
